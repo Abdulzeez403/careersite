@@ -68,6 +68,7 @@
 
 body {
   background-color: rgba(207, 207, 207, 0.24);
+  overflow-x: hidden;
 }
 
 .text-gradient {

@@ -5,6 +5,7 @@ export const categories = [
         imgSrc: "/education.png",
         title: "Academic",
         careersCount: 50,
+        top: false
     },
     {
         id: 2,
@@ -12,6 +13,7 @@ export const categories = [
         imgSrc: "/engineering.png",
         title: "Engineering",
         careersCount: 50,
+        top: true
     },
 
     {
@@ -20,6 +22,8 @@ export const categories = [
         imgSrc: "/managment.png",
         title: "Management",
         careersCount: 50,
+        top: true
+
     },
 
     {
@@ -28,21 +32,27 @@ export const categories = [
         imgSrc: "/managment.png",
         title: "Management",
         careersCount: 50,
+        top: false
+
     },
 
     {
         id: 5,
         href: "/",
-        imgSrc: "/managment.png",
-        title: "Management",
+        imgSrc: "/Agriculture.png",
+        title: "Agricultural",
         careersCount: 50,
+        top: true
+
     },
 
     {
         id: 6,
         href: "/",
-        imgSrc: "/managment.png",
-        title: "Management",
+        imgSrc: "/health.png",
+        title: "Health",
         careersCount: 50,
+        top: false
+
     },
 ];

@@ -38,7 +38,7 @@ const HomeLayout = () => {
 
 
     return (
-        <div className='herobg'>
+        <div className='herobg sticky top-0 z-50 bg-white shadow-md'>
 
             <div className='pageWidth '>
                 <div className="flex justify-between items-center py-2 px-2 shadow-md">
