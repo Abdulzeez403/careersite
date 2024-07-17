@@ -8,12 +8,14 @@ interface CategoryCardProps {
     title: string;
     careersCount: number;
     top?: boolean
+    className?: any
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ href, imgSrc, title, careersCount, top }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ href, imgSrc, title, careersCount, top, className }) => {
     return (
-        <div className="p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/5">
-            <Link className="flex rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300  border-2" href={href}>
+        <div className="p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <Link className={`flex rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300  border-2 ${className} `}
+                href={href}>
                 <div className="relative pb-2/3">
                     <Image src={imgSrc} alt={title} width={70} height={70} />
                 </div>

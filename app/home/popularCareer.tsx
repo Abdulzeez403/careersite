@@ -14,7 +14,7 @@ export const PopularCareer: React.FC = () => {
                     {categories.map((category) => (
                         <CategoryCard
                             key={category.id}
-                            href={category.href}
+                            href={`/category/${category.title}`}
                             imgSrc={category.imgSrc}
                             title={category.title}
                             careersCount={category.careersCount}

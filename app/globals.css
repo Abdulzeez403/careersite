@@ -77,6 +77,16 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.customBackground {
+  /* background: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #00b36b 100%); */
+  background-color: linear-gradient(
+    135deg,
+    #00c6ff 0%,
+    #0072ff 50%,
+    #00b36b 100%
+  );
+}
+
 .custom-switch {
   --switch-bg-on: #fca5a5; /* Tailwind's red-300 */
   --switch-bg-off: #f87171; /* Tailwind's red-500 */
