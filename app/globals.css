@@ -78,9 +78,8 @@ body {
 }
 
 .customBackground {
-  /* background: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #00b36b 100%); */
   background-color: linear-gradient(
-    135deg,
+    45deg,
     #00c6ff 0%,
     #0072ff 50%,
     #00b36b 100%
