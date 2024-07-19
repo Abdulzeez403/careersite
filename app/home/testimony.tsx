@@ -52,21 +52,25 @@ const TestimonialsCarousel: React.FC = () => {
 
             </div>
 
-            <motion.div
-                className="flex gap-4 overflow-hidden"
-                animate={{ x: ['50%', '-50%'] }}
-                transition={{ repeat: Infinity, duration: 50, ease: 'linear' }}
-            >
-                {testimonials.map((testimonial) => (
-                    <TestimonialCard
-                        key={testimonial.id}
-                        iconSrc={testimonial.iconSrc}
-                        description={testimonial.description}
-                        clientImage={testimonial.clientImage}
-                        clientName={testimonial.clientName}
-                    />
-                ))}
-            </motion.div>
+
+            <div className="relative w-full h-full overflow-hidden">
+                <motion.div
+                    className=" flex gap-4 sm:gap-8 lg:gap-12"
+                    animate={{ x: ['100%', '-100%'] }}
+                    transition={{ repeat: Infinity, duration: 50, ease: 'linear' }}
+                >
+                    {testimonials.map((testimonial) => (
+                        <div key={testimonial.id} className="min-w-[75vw] sm:min-w-[50vw] lg:min-w-[25vw]">
+                            <TestimonialCard
+                                iconSrc={testimonial.iconSrc}
+                                description={testimonial.description}
+                                clientImage={testimonial.clientImage}
+                                clientName={testimonial.clientName}
+                            />
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
 
         </div>
 

@@ -136,3 +136,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 1rem; /* Adjust gap as needed */
+  white-space: nowrap; /* Prevent line breaks */
+}
