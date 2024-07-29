@@ -3,7 +3,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import heroImage from '../../public/heroImage.png';
+import heroImage from '../../public/image2.png';
 
 export const HeroSection: React.FC = () => {
     return (
@@ -17,7 +17,7 @@ export const HeroSection: React.FC = () => {
                 </Button>
             </div>
             <div className="lg:flex-1 mt-8 lg:mt-0 flex justify-center lg:justify-end">
-                <Image src={heroImage} alt="Hero Image" width={800} height={800} className="max-w-full h-auto" />
+                <Image src={heroImage} alt="Hero Image" width={700} height={700} className="max-w-full h-auto" />
             </div>
             <div className="custom-shape-divider-bottom-1720832713">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

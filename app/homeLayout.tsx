@@ -70,7 +70,7 @@ const HomeLayout = () => {
 
                         {/* ) : ( */}
                         <div className="pl-4 flex ">
-                            <Button className="text-white bg-black hover:bg-slate-300 text-md">Login/Register</Button>
+                            <Button className="text-white bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-slate-300 text-md">Enquire Now</Button>
                         </div>
 
                         {/* )
@@ -84,7 +84,7 @@ const HomeLayout = () => {
                             </SheetTrigger>
                             <SheetContent>
                                 <SheetHeader>
-                                    <SheetTitle>JambFocus</SheetTitle>
+                                    <SheetTitle>GuideUs</SheetTitle>
                                     <div className="block items-center">
                                         <div>
                                             <Link href="/" className=' text-[20px]'>Home</Link>
@@ -102,13 +102,6 @@ const HomeLayout = () => {
                                             {/* {userCookie?._id && (<Link href="/admin" className='text-[20px]'>Dashboard</Link>)} */}
                                         </div>
 
-
-
-
-                                        <div className='
-                                        border-none p-2 rounded-md bg-customSecondary text-customPrimary' >
-                                            LogOut
-                                        </div>
 
 
                                     </div>

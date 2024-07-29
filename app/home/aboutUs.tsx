@@ -1,9 +1,7 @@
 import React from 'react';
 import { Heart, Book } from 'lucide-react';
 import Image from "next/image"
-import about1 from "../../public/aboutus1.png"
-import about2 from "../../public/aboutus2.png"
-import about3 from "../../public/aboutus3.png"
+import about3 from "../../public/about.jpeg"
 
 
 export const AboutUs = () => {
@@ -12,41 +10,13 @@ export const AboutUs = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center gap-10">
                     {/* Image Section */}
-                    <div className=" md:w-1/2 grid grid-cols-2 gap-4">
-
-                        <div className="w-full flex md:hidden lg:hidden">
-                            <Image
-                                src={about1}
-                                alt="Education Images"
-                                width={800}
-                                height={800}
-                                className="rounded-lg shadow-lg"
-                            />
-                        </div>
-                        <div className="col-span-1 hidden md:flex lg:flex">
-                            <Image
-                                src={about1}
-                                alt="Education Images"
-                                width={500}
-                                height={500}
-                                className="rounded-lg shadow-lg"
-                            />
-                        </div>
-                        <div className="col-span-1 pt-4 hidden md:flex lg:flex">
-                            <Image
-                                src={about2}
-                                alt="Education Images"
-                                width={500}
-                                height={500}
-                                className="rounded-lg shadow-lg d-none d-xl-block"
-                            />
-                        </div>
-                        <div className="col-span-1 ml-30 hidden md:flex lg:flex">
+                    <div className="">
+                        <div className="">
                             <Image
                                 src={about3}
                                 alt="Education Images"
-                                width={500}
-                                height={500}
+                                width={800}
+                                height={600}
                                 className="rounded-lg shadow-lg d-none d-md-block"
                             />
                         </div>
