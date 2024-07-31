@@ -4,7 +4,6 @@ export const categories = [
     href: "/",
     imgSrc: "/education.png",
     title: "Academic",
-    careersCount: 50,
     top: false,
   },
   {
@@ -12,7 +11,6 @@ export const categories = [
     href: "/",
     imgSrc: "/engineering.png",
     title: "Health",
-    careersCount: 50,
     top: true,
   },
 
@@ -21,7 +19,6 @@ export const categories = [
     href: "/",
     imgSrc: "/managment.png",
     title: "Politics",
-    careersCount: 50,
     top: true,
   },
 
@@ -30,7 +27,6 @@ export const categories = [
     href: "/",
     imgSrc: "/managment.png",
     title: "Marital Life",
-    careersCount: 50,
     top: false,
   },
 
@@ -39,7 +35,6 @@ export const categories = [
     href: "/",
     imgSrc: "/Agriculture.png",
     title: "Social Life",
-    careersCount: 50,
     top: true,
   },
 
@@ -48,7 +43,6 @@ export const categories = [
     href: "/",
     imgSrc: "/health.png",
     title: "Finance",
-    careersCount: 50,
     top: false,
   },
   {
@@ -56,7 +50,6 @@ export const categories = [
     href: "/",
     imgSrc: "/health.png",
     title: "Beliefs",
-    careersCount: 50,
     top: false,
   },
   {
@@ -64,7 +57,6 @@ export const categories = [
     href: "/",
     imgSrc: "/health.png",
     title: "Life",
-    careersCount: 50,
     top: false,
   },
   {
@@ -72,7 +64,6 @@ export const categories = [
     href: "/",
     imgSrc: "/health.png",
     title: "Life",
-    careersCount: 50,
     top: false,
   },
   {
@@ -80,7 +71,6 @@ export const categories = [
     href: "/",
     imgSrc: "/health.png",
     title: "Career",
-    careersCount: 50,
     top: false,
   },
 ];

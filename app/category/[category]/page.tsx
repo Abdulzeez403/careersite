@@ -45,10 +45,6 @@ export default function Page() {
               <h4 className="text-[2.2rem] font-semibold capitalize py-4">
                 {categoryname}
               </h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-                facere nesciunt.
-              </p>
             </div>
           </div>
         </div>
@@ -61,7 +57,6 @@ export default function Page() {
                 href={`/category/${categoryname}/${category?.title.toLowerCase()}`}
                 imgSrc={category.imgSrc}
                 title={category.title}
-                careersCount={category.careersCount}
                 className="bg-white"
               />
             ))}
