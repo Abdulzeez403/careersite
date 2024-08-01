@@ -7,7 +7,7 @@ interface CategoryCardProps {
     href: string;
     imgSrc: any;
     title: string;
-    careersCount: number;
+    careersCount?: number;
     top?: boolean
     className?: any
 }
