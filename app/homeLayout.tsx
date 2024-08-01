@@ -17,9 +17,9 @@ import { SignUpForm } from "./(auth)/signup";
 import { ResponsiveDrawerDialog } from "./components/modal/responsivedrawer";
 
 interface IProps {
-    handleCloseModal?: () => void;
-    handleOpenModal?: () => void;
-    open?: boolean
+    handleCloseModal: () => void;
+    handleOpenModal: () => void;
+    open: boolean
 }
 
 const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open }) => {
@@ -71,7 +71,8 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                         </div>
 
                         {/* ) : ( */}
-                        <div className="pl-4 flex " onClick={handleOpenModal}>
+                        <div className="pl-4 flex "
+                            onClick={handleOpenModal}>
                             <Button className="text-white bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-slate-300 text-md">
                                 Login / Register
                             </Button>

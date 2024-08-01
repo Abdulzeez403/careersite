@@ -19,7 +19,7 @@ const HomePage = ({ handleOpenModal }: IProps) => {
             <TopCareerCategory />
             <AboutUs />
             <TestimonialsCarousel />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }

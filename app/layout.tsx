@@ -23,7 +23,7 @@ export default function RootLayout({
                 <Notification />
                 <body className={inter.className}>{children}</body>
             </AuthProvider>
-            <Footer />
+            {/* <Footer /> */}
         </html>
 
     );
