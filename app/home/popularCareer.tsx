@@ -5,37 +5,37 @@ import { categories } from "../constant/data";
 import { axiosApi } from "@/lib/utils";
 
 export const PopularCareer: React.FC = () => {
-  // const [categories, setCategories] = useState<Array<{name: string, _id: string}>>([])
+    // const [categories, setCategories] = useState<Array<{name: string, _id: string}>>([])
 
-  const fetchCategories = async () => {
-    const { api } = await axiosApi();
-    const res = await api.get("/categories");
+    const fetchCategories = async () => {
+        const { api } = await axiosApi();
+        const res = await api.get("/categories");
 
-    if (res.data) {
-      console.log(res.data?.category);
-    }
-  };
+        if (res.data) {
+            console.log(res.data?.category);
+        }
+    };
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+    useEffect(() => {
+        fetchCategories();
+    }, []);
 
-  return (
-    <div className="bg-[#eeeded] py-8 ">
-      <div className="container mx-auto ">
-        <h1 className="text-3xl font-bold mb-8 ">Popular Career</h1>
-        <div className="flex flex-wrap -m-4">
-          {categories.map((category) => (
-            <CategoryCard
-              key={category.id}
-              href={`/category/${category.title.toLowerCase()}`}
-              imgSrc={category.imgSrc}
-              title={category.title}
-              careersCount={category.careersCount}
-            />
-          ))}
+    return (
+        <div className="bg-[#eeeded] py-8 ">
+            <div className="container mx-auto ">
+                <h1 className="text-3xl font-bold mb-8 ">Popular Career</h1>
+                <div className="flex flex-wrap -m-4">
+                    {categories.map((category) => (
+                        <CategoryCard
+                            key={category.id}
+                            href={`/category/${category.title.toLowerCase()}`}
+                            imgSrc={category.imgSrc}
+                            title={category.title}
+                        //   careersCount={category.careersCount}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };

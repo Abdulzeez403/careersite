@@ -16,7 +16,6 @@ export const TopCareerCategory: React.FC = () => {
                         </div>
 
 
-
                         <h1 className='text-3xl font-bold mb-8 text-center py-2'>Top Categories of Career Option</h1>
                     </div>
 
@@ -26,10 +25,11 @@ export const TopCareerCategory: React.FC = () => {
                     {categories.filter(c => c.top == true).map((category) => (
                         <CategoryCard
                             key={category.id}
-                            href={category.href}
+                            href={`/category/${category.title.toLowerCase()}`}
                             imgSrc={category.imgSrc}
                             title={category.title}
                             careersCount={category.careersCount}
+                            className="my-2 shadow-xxl"
                         />
                     ))}
                 </div>

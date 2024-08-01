@@ -7,10 +7,14 @@ import { AboutUs } from './aboutUs';
 import TestimonialsCarousel from './testimony';
 
 
-const HomePage = () => {
+interface IProps {
+    handleOpenModal?: () => void;
+}
+
+const HomePage = ({ handleOpenModal }: IProps) => {
     return (
         <div>
-            <HeroSection />
+            <HeroSection handleOpenModal={handleOpenModal} />
             <PopularCareer />
             <TopCareerCategory />
             <AboutUs />

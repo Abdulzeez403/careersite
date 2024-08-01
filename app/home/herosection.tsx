@@ -5,14 +5,18 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import heroImage from '../../public/image2.png';
 
-export const HeroSection: React.FC = () => {
+interface IProps {
+    handleOpenModal?: () => void;
+}
+
+export const HeroSection: React.FC<IProps> = ({ handleOpenModal }) => {
     return (
         <div className="relative bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 py-20 flex flex-col lg:flex-row items-center justify-center ">
 
             <div className="lg:flex-1 px-4 lg:px-20 lg:mr-8 text-center lg:text-left">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">Aiming for Knowledge to Kickstart Your Career</h1>
                 <p className="mt-4 text-lg sm:text-xl text-white">We are thrilled to provide you the real-world knowledge and guide you through a variety of career options.</p>
-                <Button className="mt-8 px-6 py-3 rounded-full bg-white text-customPrimary font-semibold">
+                <Button className="mt-8 px-6 py-3 rounded-full bg-white text-black hover:text-white font-semibold" onClick={handleOpenModal}>
                     Get Started
                 </Button>
             </div>
