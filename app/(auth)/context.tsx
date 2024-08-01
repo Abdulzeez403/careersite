@@ -10,21 +10,25 @@ import { notify } from '../components/toast';
 interface IProp {
     loading: boolean;
     user: IUser,
+    categoryData: any,
     signIn: (payload: any) => void;
     signUp: (values: any) => void;
+    getCategoryData: (values: any) => void;
     currentUser: (userId: any) => void;
     signOut: () => void;
 }
-const AuthContext = createContext<IProp>({
-    loading: false,
-    user: null || {},
-    signIn: (payload) => {
-        return null
-    },
-    signUp: (values) => { },
-    currentUser: (userId) => { },
-    signOut: () => { },
-});
+const AuthContext = createContext<IProp | undefined>(undefined);
+// const AuthContext = createContext<IProp>({
+//     loading: false,
+//     user: null || {},
+//     signIn: (payload) => {
+//         return null
+//     },
+//     signUp: (values) => { },
+//     getCategoryData: (values) => { },
+//     currentUser: (userId) => { },
+//     signOut: () => { },
+// });
 
 export const useAuthContext = () => {
     let context = useContext(AuthContext);
@@ -42,6 +46,7 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
 
     const [loading, setLoading] = useState<boolean>(false);
     const [user, setUser] = useState({} as any);
+    const [categoryData, setCategoryData] = useState([])
     const cookies = new Cookies()
     const router = useRouter();
 
@@ -58,11 +63,11 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
             setUser(response.data);
             setLoading(false)
             window.location.reload();
-            notify.success(response.data.msg);
+            notify.success(response.data.message);
         } catch (error: any) {
             setLoading(false);
-            notify.error(error.response.data.msg);
-        
+            notify.error(error.response.data.message);
+
             throw error;
         }
     };
@@ -72,18 +77,31 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
     const signUp = async (userData: any) => {
         setLoading(true);
         try {
-            const response = await axios.post(`${port}/auth/register`, userData);
-            notify.success('Sign up successful');
+            const response = await axios.post(`${port}/auth/signup`, userData);
+            notify.success(response.data.message);
+            window.location.reload();
             setLoading(false);
         } catch (error: any) {
-            if (error.response && error.response.data && error.response.data.msg) {
-                notify.error(error.response.data.msg);
-            } else {
-                notify.error("An unknown error occurred.");
-            }
+            notify.error(error.response.data.message);
             throw error;
         }
     };
+
+    const getCategoryData = async (values: any) => {
+        try {
+            const response = await axios.get(`${port}/info/${values}`,);
+            setCategoryData(response?.data?.data)
+            console.log(response)
+
+            setLoading(false);
+        } catch (error: any) {
+            // notify.error(error.response.data.message);
+            console.log(error)
+
+            throw error;
+        }
+
+    }
 
     const currentUser = async (userId: any) => {
         try {
@@ -114,7 +132,7 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
 
     return (
         <AuthContext.Provider
-            value={{ loading, user, signIn, signUp, currentUser, signOut }}>
+            value={{ loading, user, categoryData, signIn, signUp, currentUser, signOut, getCategoryData }}>
             {children}
 
         </AuthContext.Provider>

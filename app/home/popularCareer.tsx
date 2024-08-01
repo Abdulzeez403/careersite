@@ -2,23 +2,9 @@
 import React, { useEffect, useState } from "react";
 import CategoryCard from "../components/card";
 import { categories } from "../constant/data";
-import { axiosApi } from "@/lib/utils";
 
 export const PopularCareer: React.FC = () => {
-    // const [categories, setCategories] = useState<Array<{name: string, _id: string}>>([])
 
-    const fetchCategories = async () => {
-        const { api } = await axiosApi();
-        const res = await api.get("/categories");
-
-        if (res.data) {
-            console.log(res.data?.category);
-        }
-    };
-
-    useEffect(() => {
-        fetchCategories();
-    }, []);
 
     return (
         <div className="bg-[#eeeded] py-8 ">
@@ -28,7 +14,7 @@ export const PopularCareer: React.FC = () => {
                     {categories.map((category) => (
                         <CategoryCard
                             key={category.id}
-                            href={`/category/${category.title.toLowerCase()}`}
+                            href={`/category/${category.title}`}
                             imgSrc={category.imgSrc}
                             title={category.title}
                         />

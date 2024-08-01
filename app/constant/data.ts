@@ -4,7 +4,7 @@ export const categories = [
         id: 1,
         href: "/",
         imgSrc: "/education.png",
-        title: "Academic",
+        title: "Academia",
         top: false,
     },
     {
@@ -22,9 +22,6 @@ export const categories = [
         title: "Politics",
         top: true,
     },
-
-
-
 
     {
         id: 5,
