@@ -31,7 +31,6 @@ export const PopularCareer: React.FC = () => {
                             href={`/category/${category.title.toLowerCase()}`}
                             imgSrc={category.imgSrc}
                             title={category.title}
-                        //   careersCount={category.careersCount}
                         />
                     ))}
                 </div>

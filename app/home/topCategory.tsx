@@ -1,9 +1,7 @@
-'use client'
-import React from 'react';
-import CategoryCard from '../components/card';
-import { categories } from '../constant/data';
-
-
+"use client";
+import React from "react";
+import CategoryCard from "../components/card";
+import { categories } from "../constant/data";
 
 export const TopCareerCategory: React.FC = () => {
     return (
@@ -28,14 +26,11 @@ export const TopCareerCategory: React.FC = () => {
                             href={`/category/${category.title.toLowerCase()}`}
                             imgSrc={category.imgSrc}
                             title={category.title}
-                            careersCount={category.careersCount}
                             className="my-2 shadow-xxl"
                         />
                     ))}
                 </div>
             </div>
         </div>
-
     );
 };
-
