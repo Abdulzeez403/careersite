@@ -15,6 +15,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SignInForm } from "./(auth)/signin";
 import { SignUpForm } from "./(auth)/signup";
 import { ResponsiveDrawerDialog } from "./components/modal/responsivedrawer";
+import { useAuthContext } from "./(auth)/context";
+import Cookies from "universal-cookie";
+import Image from "next/image"
+import Logo from "../public/CareerQuest.png"
 
 interface IProps {
     handleCloseModal: () => void;
@@ -23,25 +27,28 @@ interface IProps {
 }
 
 const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open }) => {
-    // const { currentUser, user, signOut, loading } = useAuthContext();
+    const { currentUser, user, signOut, loading } = useAuthContext();
 
-    // const cookies = new Cookies();
-    // let userCookie = cookies.get("user");
+    const cookies = new Cookies();
+    let userCookie = cookies.get("user");
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if (userCookie && userCookie._id) {
-    //         currentUser(userCookie._id);
-    //     } else {
-    //         console.error("User cookie not found or malformed");
-    //     }
-    // }, []);
+        if (userCookie && userCookie.id) {
+            currentUser(userCookie.id);
+        } else {
+            console.error("User cookie not found or malformed");
+        }
+    }, []);
 
     return (
         <div className="herobg sticky top-0 z-50 bg-white shadow-md">
             <div className="pageWidth ">
                 <div className="flex justify-between items-center py-2 px-2 shadow-md">
-                    <h3 className="text-black font-bold text-[1.5rem]">GuideUs</h3>
+                    <h3 className="text-gradient-to-r from-green-400 via-blue-500 to-purple-600 font-bold text-[1.2rem]">CareerQuest</h3>
+
+
+                    {/* <Image src={Logo} alt="image.jpg" width={100} height={50} /> */}
 
                     <div className="hidden md:flex lg:flex">
                         <div className=" hidden gap-x-4 items-center text-black lg:flex">
@@ -57,29 +64,30 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                         </div>
                     </div>
                     <div>
-                        {/* {
-                            userCookie?._id ? ( */}
+                        {
+                            userCookie?.id ? (
 
-                        <div className="flex gap-x-4">
-                            {/* <Button className='bg-foreground border-none hidden md:flex lg:flex bg-customSecondary text-white'>
-                                <Link href="/admin">{user?.username}</Link>
-                            </Button> */}
+                                <div className="flex gap-x-4">
+                                    <Button className='text-white bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-slate-300 text-md'>
+                                        {user?.firstName}
+                                    </Button>
 
-                            {/* <Button className='bg-foreground border-none hidden md:flex lg:flex bg-customSecondary text-white' >
-                                LogOut
-                            </Button> */}
-                        </div>
+                                    <Button className="bg-white border-2 border-blue-500 text-blue-500 hidden md:flex lg:flex font-semibold">
+                                        LogOut
+                                    </Button>
 
-                        {/* ) : ( */}
-                        <div className="pl-4 flex "
-                            onClick={handleOpenModal}>
-                            <Button className="text-white bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-slate-300 text-md">
-                                Login / Register
-                            </Button>
-                        </div>
+                                </div>
 
-                        {/* )
-                        } */}
+                            ) : (
+                                <div className="pl-4 flex "
+                                    onClick={handleOpenModal}>
+                                    <Button className="text-white bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-slate-300 text-md">
+                                        Login / Register
+                                    </Button>
+                                </div>
+
+                            )
+                        }
                     </div>
 
                     <div className="flex md:hidden lg:hidden">
@@ -89,7 +97,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                             </SheetTrigger>
                             <SheetContent>
                                 <SheetHeader>
-                                    <SheetTitle>GuideUs</SheetTitle>
+                                    <SheetTitle>CareerQuest</SheetTitle>
                                     <div className="block items-center">
                                         <div>
                                             <Link href="/" className=" text-[20px]">
@@ -98,7 +106,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                                         </div>
                                         <div>
                                             <Link href="/" className="text-[20px]">
-                                                Blog
+                                                Career
                                             </Link>
                                         </div>
                                         <div>
@@ -114,6 +122,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                             </SheetContent>
                         </Sheet>
                     </div>
+                    
                 </div>
             </div>
 
@@ -141,6 +150,6 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                 </Tabs>
             </ResponsiveDrawerDialog>
         </div>
-    );
+    )
 };
 export default HomeLayout;

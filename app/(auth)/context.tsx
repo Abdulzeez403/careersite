@@ -6,6 +6,8 @@ import Cookies from 'universal-cookie';
 import { useRouter } from 'next/navigation';
 import { IUser } from '../constant/model';
 import { notify } from '../components/toast';
+import { jwtDecode } from "jwt-decode";
+
 
 interface IProp {
     loading: boolean;
@@ -16,6 +18,11 @@ interface IProp {
     getCategoryData: (values: any) => void;
     currentUser: (userId: any) => void;
     signOut: () => void;
+}
+
+interface DecodedToken {
+    _id: string;
+
 }
 const AuthContext = createContext<IProp | undefined>(undefined);
 // const AuthContext = createContext<IProp>({
@@ -57,9 +64,9 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
         setLoading(true)
         try {
             const response = await axios.post(`${port}/auth/login`, payload);
-            // let decoded: DecodedToken = jwtDecode<DecodedToken>(response.data.token);
-            // UseSetCookie("user", decoded)
-            // UseSetCookie("token", response.data)
+            let decoded: DecodedToken = jwtDecode<DecodedToken>(response.data.token);
+            UseSetCookie("user", decoded)
+            UseSetCookie("token", response.data)
             setUser(response.data);
             setLoading(false)
             window.location.reload();
@@ -106,11 +113,13 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
     const currentUser = async (userId: any) => {
         try {
             const { token } = cookies.get("token");
-            const response = await axios.get(`${port}/user/${userId}`, {
-                headers: {
-                    'x-auth-token': token
-                }
-            });
+            const response = await axios.get(`${port}/users/${userId}`
+                //     {
+                //     headers: {
+                //         'x-auth-token': token
+                //     }
+                // }
+            );
             setUser(response.data);
             return response.data;
         } catch (error) {
