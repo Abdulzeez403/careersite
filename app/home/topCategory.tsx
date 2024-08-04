@@ -3,7 +3,22 @@ import React from "react";
 import CategoryCard from "../components/card";
 import { categories } from "../constant/data";
 
-export const TopCareerCategory: React.FC = () => {
+interface IProps {
+    handleOpenModal: any;
+    user: any
+}
+
+export const TopCareerCategory = ({ handleOpenModal, user }: IProps) => {
+
+    const handleCardClick = () => {
+        if (!user?.id) {
+            handleOpenModal();
+        } else {
+            // Handle category click for logged-in users
+            console.log(`Category clicked:`);
+        }
+    };
+
     return (
         <div className='bg-slate-200 py-16  '>
             <div className='container mx-auto '>
@@ -20,14 +35,18 @@ export const TopCareerCategory: React.FC = () => {
                 </div>
 
                 <div className='flex flex-wrap -m-4'>
-                    {categories.filter(c => c.top == true).map((category) => (
+                    {categories.filter(c => c.top == true).reverse().map((category) => (
+
                         <CategoryCard
                             key={category.id}
-                            href={`/category/${category.title.toLowerCase()}`}
+                            href={user?._id ? (`/category/${category.title.toLowerCase()}`) : ("#")}
                             imgSrc={category.imgSrc}
                             title={category.title}
                             className="my-2 shadow-xxl"
+                            onClick={handleCardClick}
                         />
+
+
                     ))}
                 </div>
             </div>

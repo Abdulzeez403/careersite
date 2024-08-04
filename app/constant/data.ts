@@ -5,7 +5,7 @@ export const categories = [
         href: "/",
         imgSrc: "/education.png",
         title: "Academia",
-        top: false,
+        top: true,
     },
     {
         id: 2,

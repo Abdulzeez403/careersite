@@ -10,13 +10,15 @@ interface CategoryCardProps {
     careersCount?: number;
     top?: boolean
     className?: any
+    onClick?: () => void;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ href, imgSrc, title, careersCount, top, className }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ href, imgSrc, title, className, onClick }) => {
     return (
-        <div className="p-4 pl-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <Link className={`flex items-center rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300  border-2 ${className} `}
-                href={href}>
+
+        <div className="cursor-pointer p-4 pl-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" onClick={onClick}>
+            <Link href={href} className={`flex items-center rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300  border-2 ${className} `}
+            >
                 <div className="relative pb-2/3">
                     <Image src={imgSrc} alt={title} width={70} height={70} />
                 </div>
