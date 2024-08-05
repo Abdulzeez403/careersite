@@ -9,10 +9,10 @@ interface IProps {
 }
 export const PopularCareer = ({ handleOpenModal, user }: IProps) => {
     const handleCardClick = () => {
-        if (!user?.id) {
+        console.log(user, "the id")
+        if (!user) {
             handleOpenModal();
         } else {
-            // Handle category click for logged-in users
             console.log(`Category clicked:`);
         }
     };
@@ -27,7 +27,7 @@ export const PopularCareer = ({ handleOpenModal, user }: IProps) => {
 
                         <CategoryCard
                             key={category.id}
-                            href={user?._id ? (`/category/${category.title.toLowerCase()}`) : ("#")}
+                            href={user ? (`/category/${category.title.toLowerCase()}`) : ("#")}
                             imgSrc={category.imgSrc}
                             title={category.title}
                             className="my-2 shadow-xxl"

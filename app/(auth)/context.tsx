@@ -113,12 +113,12 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
     const currentUser = async (userId: any) => {
         try {
             const { token } = cookies.get("token");
-            const response = await axios.get(`${port}/users/${userId}`
-                //     {
-                //     headers: {
-                //         'x-auth-token': token
-                //     }
-                // }
+            const response = await axios.get(`${port}/user/${userId}`,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                }
             );
             setUser(response.data);
             return response.data;
@@ -131,10 +131,16 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
 
 
     const signOut = async () => {
-        cookies.remove('user');
-        cookies.remove('token');
-        router.push('/')
-        // window.location.reload();
+        try {
+            await cookies.remove('user');
+            await cookies.remove('token');
+            router.push('/')
+            window.location.reload();
+        } catch (error) {
+            console.log(error)
+
+        }
+
 
     };
 

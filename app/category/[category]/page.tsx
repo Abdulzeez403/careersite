@@ -14,9 +14,17 @@ import classNames from "classnames";
 import { Footer } from "@/app/home/footer";
 import { useAuthContext } from "@/app/(auth)/context";
 
+const specialCategoryMapping: { [key: string]: string } = {
+    'social-life': 'Social Life',
+    'academic': 'Academia',
+    // Add other special categories as needed
+};
+
 export default function Page() {
     const urlPath = usePathname();
     const categorySlug = urlPath.split("/")[2];
+
+
     const capitalizeCategoryName = (slug: string) => {
         if (!slug) return '';
         return slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase();
@@ -25,6 +33,10 @@ export default function Page() {
     const categoryName = capitalizeCategoryName(categorySlug);
     const { getCategoryData, categoryData } = useAuthContext();
     const [activeTab, setActiveTab] = useState("about");
+
+    // Check if the categorySlug is special and map accordingly
+    const actualCategoryName = specialCategoryMapping[categorySlug.toLowerCase()] || categoryName;
+
 
     useEffect(() => {
         getCategoryData(categoryName);

@@ -45,7 +45,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
         <div className="herobg sticky top-0 z-50 bg-white shadow-md">
             <div className="pageWidth ">
                 <div className="flex justify-between items-center py-2 px-2 shadow-md">
-                    <h3 className="text-gradient-to-r from-green-400 via-blue-500 to-purple-600 font-bold text-[1.2rem]">CareerQuest</h3>
+                    <h3 className="text-gradient-to-r from-green-400 via-blue-500 to-purple-600 font-bold text-[1.2rem]">CareerQuide</h3>
 
 
                     {/* <Image src={Logo} alt="image.jpg" width={100} height={50} /> */}
@@ -72,7 +72,8 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                                         {user?.firstName}
                                     </Button>
 
-                                    <Button className="bg-white border-2 border-blue-500 text-blue-500 hidden md:flex lg:flex font-semibold">
+                                    <Button className="bg-white border-2 border-blue-500 text-blue-500 hidden md:flex lg:flex font-semibold"
+                                        onClick={() => signOut()}>
                                         LogOut
                                     </Button>
 
@@ -97,7 +98,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                             </SheetTrigger>
                             <SheetContent>
                                 <SheetHeader>
-                                    <SheetTitle>CareerQuest</SheetTitle>
+                                    <SheetTitle>CareerQuide</SheetTitle>
                                     <div className="block items-center">
                                         <div>
                                             <Link href="/" className=" text-[20px]">
@@ -115,14 +116,17 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                                             </Link>
                                         </div>
                                         <div>
-                                            {/* {userCookie?._id && (<Link href="/admin" className='text-[20px]'>Dashboard</Link>)} */}
+                                            {userCookie?.id && (<Button className="bg-white border-2 border-blue-500 text-blue-500  md:flex lg:flex font-semibold"
+                                                onClick={() => signOut()}>
+                                                LogOut
+                                            </Button>)}
                                         </div>
                                     </div>
                                 </SheetHeader>
                             </SheetContent>
                         </Sheet>
                     </div>
-                    
+
                 </div>
             </div>
 

@@ -33,8 +33,10 @@ const HomePage = ({ handleOpenModal }: IProps) => {
     return (
         <div>
             <HeroSection handleOpenModal={handleOpenModal} />
-            <PopularCareer handleOpenModal={handleOpenModal} user={user} />
-            <TopCareerCategory handleOpenModal={handleOpenModal} user={user} />
+            <PopularCareer handleOpenModal={handleOpenModal} 
+            user={userCookie?.id} />
+            <TopCareerCategory handleOpenModal={handleOpenModal}
+             user={userCookie?.id} />
             <AboutUs />
             <TestimonialsCarousel />
             <Footer />
