@@ -85,6 +85,10 @@ export const AuthProvider: React.FC<IProps> = ({ children }) => {
         setLoading(true);
         try {
             const response = await axios.post(`${port}/auth/signup`, userData);
+            let decoded: DecodedToken = jwtDecode<DecodedToken>(response.data.token);
+            UseSetCookie("user", decoded)
+            UseSetCookie("token", response.data)
+            setUser(response.data);
             notify.success(response.data.message);
             window.location.reload();
             setLoading(false);
