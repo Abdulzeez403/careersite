@@ -53,7 +53,7 @@ export const SignInForm: React.FC = () => {
                     <FormField label="Password" name="password" type="password" />
                     <div>
                         <CustomButton type="submit" loading={isSubmitting}>
-                            SignIn
+                            Sign In
                         </CustomButton>
 
                     </div>

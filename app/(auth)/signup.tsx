@@ -53,7 +53,7 @@ export const SignUpForm: React.FC = () => {
 
                     <div>
                         <CustomButton type="submit" loading={isSubmitting}>
-                            SignUp
+                            Sign Up
                         </CustomButton>
 
                     </div>

@@ -27,7 +27,7 @@ export const categories = [
         id: 5,
         href: "/",
         imgSrc: "/Agriculture.png",
-        title: "Social Life",
+        title: "Life",
         top: true,
     },
 

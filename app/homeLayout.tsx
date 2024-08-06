@@ -98,7 +98,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                             </SheetTrigger>
                             <SheetContent>
                                 <SheetHeader>
-                                    <SheetTitle>CareerQuide</SheetTitle>
+                                    <SheetTitle>CareerQuides</SheetTitle>
                                     <div className="block items-center">
                                         <div>
                                             <Link href="/" className=" text-[20px]">
@@ -132,14 +132,14 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
 
             <ResponsiveDrawerDialog
                 title="Login/Register"
-                description="Let's the journey begins!"
+                description="Let the journey begins!"
                 isOpen={open as any}
                 onClose={handleCloseModal}
             >
                 <Tabs defaultValue="signin" className=" pr-2">
                     <TabsList className=" w-90 grid grid-cols-2">
-                        <TabsTrigger value="signin" className='focus:bg-customSecondary'>SignIn</TabsTrigger>
-                        <TabsTrigger value="signup" className='active:bg-customSecondary'>SignUp</TabsTrigger>
+                        <TabsTrigger value="signin" className='focus:bg-customSecondary'>Sign In</TabsTrigger>
+                        <TabsTrigger value="signup" className='active:bg-customSecondary'>Sign Up</TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="signin">
