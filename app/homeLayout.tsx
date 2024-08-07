@@ -45,7 +45,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
         <div className="herobg sticky top-0 z-50 bg-white shadow-md">
             <div className="pageWidth ">
                 <div className="flex justify-between items-center py-2 px-2 shadow-md">
-                    <h3 className="text-gradient-to-r from-green-400 via-blue-500 to-purple-600 font-bold text-[1.2rem]">CareerQuide</h3>
+                    <h3 className="text-gradient-to-r from-green-400 via-blue-500 to-purple-600 font-bold text-[1.2rem]">CareerGuide</h3>
 
 
                     {/* <Image src={Logo} alt="image.jpg" width={100} height={50} /> */}
@@ -98,7 +98,7 @@ const HomeLayout: React.FC<IProps> = ({ handleOpenModal, handleCloseModal, open 
                             </SheetTrigger>
                             <SheetContent>
                                 <SheetHeader>
-                                    <SheetTitle>CareerQuides</SheetTitle>
+                                    <SheetTitle>CareerGuide</SheetTitle>
                                     <div className="block items-center">
                                         <div>
                                             <Link href="/" className=" text-[20px]">
